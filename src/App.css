@@ -132,9 +132,38 @@
 .field-label { font-size: .74rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
 .field-hint { font-size: .74rem; color: var(--muted); }
 .input {
-  width: 100%; padding: 11px 13px; border: 1px solid var(--line);
-  border-radius: 10px; background: #fff; font-size: .92rem;
-  transition: .16s; appearance: none;
+  width: 100%;
+  padding: 11px 13px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background-color: #fff;
+  color: #0f172a;
+  font-size: .92rem;
+  transition: .16s;
+  appearance: auto;
+  -webkit-appearance: auto;
+  color-scheme: light;
+}
+.input:focus {
+  border-color: var(--brand-2);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, .13);
+  outline: none;
+}
+.input.narrow {
+  width: auto;
+  min-width: 150px;
+  padding: 8px 11px;
+}
+textarea.input {
+  resize: vertical;
+  line-height: 1.5;
+}
+select.input {
+  background-image: linear-gradient(45deg, transparent 50%, #64748b 50%), linear-gradient(135deg, #64748b 50%, transparent 50%);
+  background-position: calc(100% - 18px) 50%, calc(100% - 13px) 50%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 34px;
 }
 .input:focus { border-color: var(--brand-2); box-shadow: 0 0 0 4px rgba(59, 130, 246, .13); outline: none; }
 .input.narrow { width: auto; min-width: 150px; padding: 8px 11px; }
@@ -657,4 +686,28 @@ select.input { background-image: linear-gradient(45deg, transparent 50%, #64748b
   .stepper { gap: 6px; }
   .stepper-item { padding: 7px 11px; font-size: .74rem; }
   .section-head { flex-direction: column; align-items: flex-start; }
+}
+/* Fix booking dropdowns and date fields */
+.checkout select.input {
+  appearance: auto;
+  -webkit-appearance: menulist;
+  background-image: none;
+  background-color: #fff;
+  color: #0f172a;
+  opacity: 1;
+  color-scheme: light;
+}
+
+.checkout select.input option {
+  background: #fff;
+  color: #0f172a;
+}
+
+.checkout input[type="date"] {
+  appearance: auto;
+  -webkit-appearance: auto;
+  background: #fff;
+  color: #0f172a;
+  opacity: 1;
+  color-scheme: light;
 }
